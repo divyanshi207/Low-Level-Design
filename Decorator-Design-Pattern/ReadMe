@@ -1,0 +1,10 @@
+Decorator Design Pattern:
+It is used when we want to add responsibilties to object dynamically without modifying the class.
+Like adding new features.
+EX:-
+Pizza Topping System:
+1: Pizza is base class in it we can add different toppings and the price will be recalculated based on prices of each topping.
+Problems Solved:
+1: Class Explosion (Avoid creating multiple subclasses)
+2: Add functanity at runtime
+3: Reusability
