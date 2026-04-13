@@ -1,0 +1,36 @@
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+
+
+interface Payment{
+  void pay(int amount);
+}
+
+
+class UpiPayment implements Payment{
+  public void pay(int amount){
+    System.out.println(amount+1);
+  }
+}
+class CardPayment implements Payment{
+  public void pay(int amount){
+    System.out.println(amount+5);
+  }
+}
+class Context{
+  private Payment payment;
+  void setStrategy(Payment payment){
+    this.payment=payment;
+  }
+  void makePayment(int amount){
+    payment.pay(amount);
+  }
+}
+public class Main {
+    public static void main(String[] args) {
+      Context c=new Context();
+      c.setStrategy(new CardPayment());
+      c.makePayment(30);
+    }
+}
