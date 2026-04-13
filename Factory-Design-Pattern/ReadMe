@@ -1,0 +1,10 @@
+Factory Design Pattern:
+It is a creational design pattern that provides an interface to create objects without exposing the object creation logic to client.
+Need:
+1: Hide obj creation logic
+2: reduce tight coupling
+3:Instead of client directly creating obj using new, we deligates this responsibity to factory class
+
+Ex: Shape Interface ,Circle Reactangle class and FactoryShape class
+we have a common interface called Shape with method draw() and then create different classes such as Circle, Reactangle that implemnets interface
+Instead of client deciding which obj to create we introduce a ShapeFactory class that take an input and return object.
