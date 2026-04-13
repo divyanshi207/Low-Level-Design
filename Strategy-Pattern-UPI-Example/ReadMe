@@ -1,0 +1,14 @@
+Strategy-Pattern:-
+
+Allows you to change behaviour of class at runtime without modifying previous code
+
+Instead of writing multiple if-else conditions we :
+  1:Create seprate strategy classes for each behaviour
+  2:Use a common interface
+  3:Choose strategy dynamically
+
+Ex: 
+In a payment system, User can pay using Credit card, Upi, Debit card, etc.. 
+Instead of writing if else conditions we create a common interface called PaymentStrategy and different classes for Payment options.
+Context class act as a wrapper it holds refrence to strategy and delegates to work seprating client from actual implementation.
+  
