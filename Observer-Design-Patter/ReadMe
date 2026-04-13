@@ -1,0 +1,10 @@
+Observer Design Pattern:
+It is a behavioural design pattern where one object(Subject/Observable) maintains a list of Observer and notify them automatically whenever the state changes.
+1:We have Subject(Observable) which hold lists of Observers and have methods like addObserver(), removeObserver(), notifyObserver()
+2:Observer that has update() method called when state changes.
+3:concrete subject(actual implementation of subject/observable)
+3:concrete observer(actual implementation of observer)
+
+Ex:- Youtube Subscribition
+when new video upload all the observer get notified, So Observale which is youtube channel keeps a list of Observers and notify them when the state changes automatically.
+
