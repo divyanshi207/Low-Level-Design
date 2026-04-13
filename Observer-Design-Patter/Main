@@ -1,1 +1,52 @@
 
+import java.util.*;
+
+interface Observer{
+  void update(String msg);
+}
+class User implements Observer{
+  private String name;
+  User(String name){
+    this.name=name;
+  }
+  public void update(String msg){
+    System.out.println("message recevied too "+ this.name+" "+"message is "+msg);
+  }
+}
+interface Observable{
+  void addObserver(Observer o);
+  void removeObserver(Observer o);
+  void notifyObserver();
+}
+
+class YoutubeChannel implements Observable{
+  private List<Observer> observers=new ArrayList<>();
+  private String video;
+  
+  public void addObserver(Observer o){
+    observers.add(o);
+  }
+  public void removeObserver(Observer o){
+    observers.remove(o);
+  }
+  public void uploadVideo(String video){
+    this.video=video;
+    notifyObserver();
+  }
+  public void notifyObserver(){
+    for(Observer o:observers){
+      o.update("new video: "+ video);
+    };
+  }
+}
+class Main{
+  public static void main(String args[]){
+    YoutubeChannel channel=new YoutubeChannel();
+    Observer user1=new User("divyanshi");
+    Observer user2=new User("sanket");
+    channel.addObserver(user1);
+    channel.addObserver(user2);
+    channel.uploadVideo("New Video incoming.... ");
+  }
+  
+}
