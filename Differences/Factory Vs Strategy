@@ -1,0 +1,29 @@
+Factory Pattern is a creational pattern it decides which object to create, 
+while Strategy Pattern is a behavioral pattern it decides how an operation should be performed.
+Factory Pattern create objects while Strategy Pattern change behaviour
+In Factory Pattern decision happens at object creation time while in Strtegy it happens at runtime
+Factory Pattern is used when you want to create diff obj based on input without using new keyword
+Strategy Pattern is used when you want to change behaviour at runtime without changing obj
+Factory Pattern chooses which class to instantiate and return a new obj 
+Stratgy pattern choose which algo to use
+Real ex: 
+ Factory Pattern – “What do you want?”
+You go to a shop and say:
+
+“Orange juice”
+“Apple juice”
+
+The shop creates and gives you the juice.
+✅ You don’t care how it’s made
+✅ You only choose the type of object
+👉 Factory → creates the object
+
+Strategy Pattern – “How do you want it prepared?”
+You already asked for orange juice, but now you choose:
+
+With sugar
+Without sugar
+With ice
+
+The juice is same, but behavior/preparation changes.
+👉 Strategy → changes behavior
