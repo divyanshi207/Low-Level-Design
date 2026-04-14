@@ -1,1 +1,37 @@
 
+import java.util.*;
+
+interface Shape{
+  void draw();
+}
+
+class Circle implements Shape{
+  public void draw(){
+    System.out.println("Circle");
+  }
+}
+
+
+class Rectangle implements Shape{
+  public void draw(){
+    System.out.println("Rectangle");
+  }
+}
+
+class ShapeFactory{
+  public Shape shapeType(String shape){
+    if(shape=="Circle")
+      return new Circle();
+    else
+      return new Rectangle();
+  }
+}
+class Main{
+  public static void main(String args[]){
+    ShapeFactory sf=new ShapeFactory();
+    
+    Shape re=sf.shapeType("Circle");
+    re.draw();
+  }
+  
+}
