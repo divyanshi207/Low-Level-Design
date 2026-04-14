@@ -1,0 +1,8 @@
+Difference Between Abstract Factory Pattern and Factory Pattern
+1: Factory Pattern is used to create a single object, whereas Abstract Factory is used to create families of related objects.
+2:For ex: In factory Pattern we have a ShapeFactory that creates obj like circle and reactangle but in Abstract Factory
+we have multiple Factories like shapefactory , colorfactory which create obj like red blue circle and rectangle
+3: In factory we have 1 factory while in Abstract factory we have multiple factories.
+Abstract Factory is factory of factories.
+4: In  factory pattern client directly talk with one factory 
+but in abstract cline talks with abstractclass that uses factoryProducer to get actual fatory
