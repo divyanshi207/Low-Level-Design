@@ -1,0 +1,16 @@
+Abstract Design Pattern
+It is creational design pattern used to create objects of related type without specifying their concreate classes.
+Why do we need it:
+when your system needs to create multiple related objects together
+ensure consistency (object belog to same family avoid multiple if-else)
+In this pattern client does not directly create objects using new instead it interacts with an abstract factory interface.
+  Ex:
+      we have 2 type of objects:
+                    Shape likes Circle and Rectangle
+                    Color like Red and Blue
+      Instead of creating objects using new keyword, we create factories. One factory is responsible for shapes, and another for colors
+      First, client ask for factory using FactoryProducer, then using that asks for Shape or Color
+      This way client does not know the actual classes and interact with interfaces only.
+
+                  1: we choose factory
+                  2: that factory create related objects
