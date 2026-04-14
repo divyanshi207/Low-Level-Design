@@ -1,0 +1,78 @@
+import java.util.*;
+
+interface Shape{
+  void draw();
+}
+interface Color{
+  void fill();
+}
+
+class Circle implements Shape{
+  public void draw(){
+    System.out.println("Circle");
+  }
+}
+
+
+class Rectangle implements Shape{
+  public void draw(){
+    System.out.println("Rectangle");
+  }
+}
+
+class Red implements Color{
+  public void fill(){
+    System.out.println("red");
+  }
+}
+class Blue implements Color{
+  public void fill(){
+    System.out.println("blue");
+  }
+}
+
+interface AbstractFactory{
+  Shape getShape(String sp);
+  Color getColor(String cl);
+}
+
+class ShapeFactory implements AbstractFactory{
+  public Shape getShape(String sp){
+    if(sp.equals("Circle"))
+      return new Circle();
+    else
+      return new Rectangle();
+  }
+  public Color getColor(String cl){
+     return null;
+  }   
+}
+
+class ColorFactory implements AbstractFactory{
+  public Color getColor(String cl){
+    if(cl.equals("red"))
+      return new Red();
+    else
+      return new Blue();
+  }
+  public Shape getShape(String sp){
+    return null;}
+}
+
+class FactoryProducer{
+  public static AbstractFactory getFactory(String choice){
+    if(choice.equals("Shape"))
+      return new ShapeFactory();
+    else
+      return new ColorFactory();
+  }
+}
+
+class Main{
+  public static void main(String args[]){
+    AbstractFactory af=FactoryProducer.getFactory("Color");
+    Color cl=af.getColor("blue");
+    cl.fill();
+  }
+  
+}
