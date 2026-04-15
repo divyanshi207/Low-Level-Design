@@ -1,0 +1,24 @@
+A class, module, or function should have only one responsibility and only one reason to change
+each class should do only one job
+Ex:
+Resturant
+Chef- cook food
+Cashier- handle paymnet
+Cleaner- cleans
+Each role has one responsibility.
+
+Not good:
+class OrderService {
+    void placeOrder() { }
+    void processPayment() { }
+    void sendEmail() { }
+}
+Good:
+class OrderService {
+    void placeOrder(Order order) {
+        // validate order
+        // save order
+    }
+}
+class PaymentService { }
+class NotificationService { }
