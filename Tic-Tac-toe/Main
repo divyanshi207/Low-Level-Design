@@ -1,0 +1,69 @@
+
+
+class Main {
+  public static void main(String args[]) {
+
+    Scanner sc = new Scanner(System.in);
+
+    // ---- Board size ----
+    System.out.print("Enter board size: ");
+    int size = sc.nextInt();
+
+    // ---- Number of players ----
+    System.out.print("Enter number of players: ");
+    int playerCount = sc.nextInt();
+    sc.nextLine(); // consume newline
+
+    List<Player> players = new ArrayList<>();
+    Set<String> usedSymbols = new HashSet<>();
+
+    // ---- Player input ----
+    for (int i = 0; i < playerCount; i++) {
+
+      System.out.println("\nEnter details for Player " + (i + 1));
+
+      System.out.print("Name: ");
+      String name = sc.nextLine();
+
+      String symbol;
+      while (true) {
+        System.out.print("Symbol (single character): ");
+        symbol = sc.nextLine();
+
+        if (symbol.length() != 1) {
+          System.out.println("❌ Enter only ONE character.");
+        } else if (usedSymbols.contains(symbol)) {
+          System.out.println("❌ Symbol already used.");
+        } else {
+          usedSymbols.add(symbol);
+          break;
+        }
+      }
+
+      players.add(new Player(name, new Piece(symbol)));
+    }
+
+    // ---- Start game ----
+    Game game = new Game(size, players);
+    System.out.println("\nGame Started!");
+
+    boolean gameOver = false;
+
+    while (!gameOver) {
+      Player current = game.getCurrentPlayer();
+
+      System.out.println("\nPlayer " + current.name +
+                         " (" + current.Pieces.getSymbol() + ") turn");
+
+      System.out.print("Enter row: ");
+      int row = sc.nextInt();
+
+      System.out.print("Enter column: ");
+      int col = sc.nextInt();
+
+      gameOver = game.makeMove(row, col);
+    }
+
+    sc.close();
+  }
+}
