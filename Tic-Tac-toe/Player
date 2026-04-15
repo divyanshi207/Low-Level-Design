@@ -1,0 +1,8 @@
+ class Player{
+   String name;
+   Pieces Pieces;
+   public Player(String name, Pieces Pieces){
+     this.name=name;
+     this.Pieces=Pieces;
+   }
+ }
