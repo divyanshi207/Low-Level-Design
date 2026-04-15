@@ -1,0 +1,86 @@
+
+class Game{
+  Board board;
+  List<Player>players;
+  int currentPlayerIndex;
+  
+  public Game(int size, List<Player> players){
+    this.board=new Board(size);
+    this.players=players;
+    this.currentPlayerIndex=0;
+  }
+  public Player getCurrentPlayer(){
+    return players.get(currentPlayerIndex);
+  }
+  public void switchTurn(){
+    currentPlayerIndex=(currentPlayerIndex+1)% players.size();
+  }
+  public boolean makeMove(int row, int col){
+    Player current=getCurrentPlayer();
+    if(!board.placeMove(row,col,current.Pieces)){
+      System.out.println("Invalid move");
+      return false;
+    }
+    board.printBoard();
+    if(checkWinner(row,col,current.Pieces)){
+      System.out.println("winners is "+ current.name);
+      return true;
+    }
+    if(isDraw()){
+      System.out.println("Draw");
+      return true;
+    }
+    switchTurn();
+    return false;
+  }
+  private boolean checkWinner(int row,int col, Pieces p){
+    int size=board.size;
+    boolean win;
+    win=true;
+    for(int i=0;i<size;i++){
+      if( board.grid[row][i]==null || !board.grid[row][i].getSymbol().equals(p.getSymbol())){
+        win=false;
+        break;
+      }
+    }
+    if(win)return true;
+    win=true;
+    for(int i=0;i<size;i++){
+      if( board.grid[i][col]==null || !board.grid[i][col].getSymbol().equals(p.getSymbol())){
+        win=false;
+        break;
+      }
+    }
+    if(win)return true;
+    if(row==col){
+       win=true;
+    for(int i=0;i<size;i++){
+      if( board.grid[i][i]==null || !board.grid[i][i].getSymbol().equals(p.getSymbol())){
+        win=false;
+        break;
+      }
+    }
+    if(win)return true;
+    }
+    if(row+col ==size-1){
+       win=true;
+    for(int i=0;i<size;i++){
+      if( board.grid[i][size-i-1]==null || !board.grid[i][size-i-1].getSymbol().equals(p.getSymbol())){
+        win=false;
+        break;
+      }
+    }
+    if(win)return true;
+    }
+    return false;
+  }
+  private boolean isDraw(){
+    for(int i=0;i<board.size;i++){
+      for(int j=0;j<board.size;j++){
+        if(board.grid[i][j]==null)
+          return false;
+      }
+    }
+    return true;
+  }
+}
