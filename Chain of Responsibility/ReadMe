@@ -1,0 +1,8 @@
+It is a behavioural design pattern where a request is passed along a chain of handlers, each handler decides either
+1: To process the request,or
+2: to pass it to the next handler in the chain
+
+Components:
+1:Client:- Send requests to 1st handler
+2:Handler:- which is interface/abstract class declared method to handle request and contains next handler refrence
+3:Concrete Handler:- Implement handling logic and contains refrence to next handle (pass forward if not handled)
