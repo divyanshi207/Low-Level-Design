@@ -1,0 +1,4 @@
+It is a structural design pattern that act as an intermediary between client and real object, allowing you to add extra behaviour like security, logging,caching,access,etc.
+Client calls procy insetad of real object , proxy decides to allow access, deny access and add extra logic then forward request to real object if needed.
+ex: An ATM Card
+You dont directly access your bank account, you use an atm card that act like a procy(secuirty) check before access.
