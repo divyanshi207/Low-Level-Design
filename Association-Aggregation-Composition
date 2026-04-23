@@ -1,0 +1,21 @@
+Aggregation and Composition are subsets of association meaning they are specific cases of association.
+In both aggregation and composition object of one class "owns" object of another class.
+But there is a subtle difference.
+In Composition the object of class that is owned by the object of it's owning class cannot live on it's own(Also called "death relationship"). It will always live as a part of it's owning object 
+where as in Aggregation the dependent object is standalone and can exist even if the object of owning class is dead.
+Composition Example : 
+Consider the example of a Car and an engine that is very specific to that car (meaning it cannot be used in any other car). 
+This type of relationship between Car and SpecificEngine class is called Composition. An object of the Car class cannot exist without an object of SpecificEngine class and object of SpecificEngine has no significance without Car class. 
+To put in simple words Car class solely "owns" the SpecificEngine class.
+
+Aggregation Example : 
+Now consider class Car and class Wheel. Car needs a Wheel object to function. Meaning the Car object owns the Wheel object but we cannot say the Wheel object has no significance without the Car Object.
+It can very well be used in a Bike, Truck or different Cars Object.
+
+Summing it up -
+
+To sum it up association is a very generic term used to represent when a class uses the functionalities provided by another class. We say it's composition if one parent class object owns another child class object and that child class object cannot meaningfully exist without the parent class object. If it can then it is called Aggregation.
+
+
+
+Got this wonderful explaination from StackOverFlow.
