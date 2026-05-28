@@ -1,6 +1,6 @@
 Aggregation and Composition are subsets of association meaning they are specific cases of association.
 In both aggregation and composition object of one class "owns" object of another class.
-But there is a subtle difference.
+But there is a subtle difference. 
 In Composition the object of class that is owned by the object of it's owning class cannot live on it's own(Also called "death relationship"). It will always live as a part of it's owning object 
 where as in Aggregation the dependent object is standalone and can exist even if the object of owning class is dead.
 Composition Example : 
